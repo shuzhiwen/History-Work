@@ -1,1 +1,0 @@
-javac Score.java
