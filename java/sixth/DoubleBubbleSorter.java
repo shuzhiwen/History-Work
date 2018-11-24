@@ -22,7 +22,8 @@ public class DoubleBubbleSorter extends BubbleSorter{
 
 	public void print() {
 		for (double i : data) {
-			System.out.println(i);
+			System.out.print(i + " ");
 		}
+		System.out.println();
 	}
 }
