@@ -26,12 +26,12 @@ void Lion::print() const
 
 int Lion::getHeight() const 
 {
-   Animal::getHeight();
+   return Animal::getHeight();
 }
 
 int Lion::getWeight() const
 {
-   Animal::getWeight();
+   return Animal::getWeight();
 }
 
 void Lion::setHeight( int h ) {
