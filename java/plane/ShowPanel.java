@@ -61,7 +61,7 @@ public class ShowPanel extends JPanel{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		overX = 0;
+		overX = 20;
 		overY = 480;
 	}
 	

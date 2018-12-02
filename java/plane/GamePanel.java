@@ -73,7 +73,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 		this.addKeyListener(this);
   	}
   
-  	public void run(){
+  public void run(){
 		while(true){
 			try{
 				repaint();
@@ -81,8 +81,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 				handleCollision();
 				updatePlayer();
 				updateEnemies();
-        		shootBullets();
-        		updateBullets();
+        shootBullets();
+        updateBullets();
 				Thread.sleep(100);
 			}catch(Exception e){
         		e.printStackTrace();
