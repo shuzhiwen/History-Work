@@ -71,7 +71,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 		t1.start();
 		
 		this.addKeyListener(this);
-  	}
+  }
   
   public void run(){
 		while(true){
@@ -85,7 +85,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
         updateBullets();
 				Thread.sleep(100);
 			}catch(Exception e){
-        		e.printStackTrace();
+        e.printStackTrace();
 			}
 		}
 	}
@@ -208,11 +208,16 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 		int i;
 		
 		if(player.isAlive()){
-			for(i=0; i<numOfEnemy; i++){
-				if(enemies[i].isDead()){
-					break;
-				}
-			}
+			f		repaint();		
+
+					repaint();		
+
+					repaint();		
+
+					repaint();		
+
+			}		repaint();		
+
 			if(i<numOfEnemy){
 				enemies[i].spawnEnemy();
 			}
