@@ -10,6 +10,7 @@ class myThread extends JPanel implements Runnable,KeyListener{
 	private JPanel jpanel1 = null;
 	private String pst = null;
 	static int socre = 0;
+	static int sleepTime = 200;
 	
 	public myThread(JPanel jpanel1, String letter) {
 		this.jpanel1 = jpanel1;
@@ -30,7 +31,7 @@ class myThread extends JPanel implements Runnable,KeyListener{
 			repaint();
 			show.setBounds(x, y, 33, 33);
 			try{
-				Thread.sleep(200);
+				Thread.sleep(sleepTime);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
@@ -47,6 +48,13 @@ class myThread extends JPanel implements Runnable,KeyListener{
 	}
 
 	public void keyPressed(KeyEvent e){
+		int key = e.getKeyCode();
+
+		if (key == KeyEvent.VK_PAGE_UP) {
+			sleepTime = 100;
+		} else if(key == KeyEvent.VK_PAGE_DOWN) {
+			sleepTime = 400;
+		}
 	}
 	
 	public void keyTyped(KeyEvent e){
@@ -59,5 +67,6 @@ class myThread extends JPanel implements Runnable,KeyListener{
 	}
 
 	public void keyReleased(KeyEvent e){
+		sleepTime = 200;
 	}
 }
