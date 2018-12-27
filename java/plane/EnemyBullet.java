@@ -6,65 +6,65 @@ import javax.swing.JPanel;
 
 public class EnemyBullet {
 	private Image bulletPic = null;
-	private int state ;
-	
+	private int state;
+
 	private final int InScreen = 0;
 	private final int OutScreen = 1;
-	
+
 	private int bulletX;
 	private int bulletY;
 	private final int bulletStep = 20;
-	
+
 	private int picWidth = 40;
 	private int picHeight = 28;
-	
-	public EnemyBullet(){
-		try{
+
+	public EnemyBullet() {
+		try {
 			File fb0 = new File("images/enemybullet.png");
 			bulletPic = ImageIO.read(fb0);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		state = OutScreen;
 	}
 
-	public int getCenterX(){
-		return (bulletX + picWidth/2);
+	public int getCenterX() {
+		return (bulletX + picWidth / 2);
 	}
-	
-	public int getCenterY(){
-		return (bulletY + picHeight /2);
+
+	public int getCenterY() {
+		return (bulletY + picHeight / 2);
 	}
-	
-	public void update(){
-		if(state == InScreen){
+
+	public void update() {
+		if (state == InScreen) {
 			bulletY += bulletStep;
-			if(bulletY > 480 - picHeight){
+			if (bulletY > 480 - picHeight) {
 				state = OutScreen;
 			}
 		}
 	}
-	
-	public void shoot(int EnemyplaneX, int EnemyplaneY){
+
+	public void shoot(int EnemyplaneX, int EnemyplaneY) {
 		state = InScreen;
 		bulletX = EnemyplaneX;
-		bulletY = EnemyplaneY+picHeight;
+		bulletY = EnemyplaneY + picHeight;
 	}
 
-	public boolean isOutScreen(){
+	public boolean isOutScreen() {
 		return (state == OutScreen);
 	}
-	
-	public boolean isInScreen(){
+
+	public boolean isInScreen() {
 		return (state == InScreen);
 	}
-	
-	public void setOutScreen(){
+
+	public void setOutScreen() {
 		state = OutScreen;
 	}
-	
-	public void drawBullet(Graphics g, JPanel jp){
-		if(state == InScreen){
+
+	public void drawBullet(Graphics g, JPanel jp) {
+		if (state == InScreen) {
 			g.drawImage(bulletPic, bulletX, bulletY, jp);
 		}
 	}

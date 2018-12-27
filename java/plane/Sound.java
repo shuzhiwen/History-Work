@@ -2,51 +2,51 @@ import java.applet.AudioClip;
 import java.net.URL;
 import javax.swing.JApplet;
 
-public class Sound{
-	
+public class Sound {
+
 	private AudioClip shoot;
 	private AudioClip explosion;
 	private Player player = null;
-	
-	public Sound(Player player){
+
+	public Sound(Player player) {
 		this.player = player;
-		
+
 		String fileName = "music/shoot.wav";
 		URL url = null;
-		try{
-			url = new URL("file:"+fileName);
+		try {
+			url = new URL("file:" + fileName);
 			shoot = JApplet.newAudioClip(url);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		fileName = "music/explosion.wav";
-		try{
-			url = new URL("file:"+fileName);
+		try {
+			url = new URL("file:" + fileName);
 			explosion = JApplet.newAudioClip(url);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void shootVoice(){
-		new Thread( new Runnable(){
-			public void run(){
-				while(player.isAlive()){
+
+	public void shootVoice() {
+		new Thread(new Runnable() {
+			public void run() {
+				while (player.isAlive()) {
 					shoot.play();
-					try{
+					try {
 						Thread.sleep(1000);
-					}catch(Exception e){
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
 			}
 		}).start();
 	}
-	
-	public void explosionVoice(){
-		new Thread( new Runnable(){
-			public void run(){
+
+	public void explosionVoice() {
+		new Thread(new Runnable() {
+			public void run() {
 				explosion.play();
 			}
 		}).start();
