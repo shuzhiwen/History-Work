@@ -12,8 +12,8 @@ int main() {
 	s1.add(s3); // 表示将s3加到s1中
 	s1.print();
 
-    const String s4(s2);
-    String s5;
-    s5 = s4.add(s3); // 表示将s4加上s3赋值给s5中
-    s5.print();
+  const String s4(s2);
+  String s5;
+  s5 = s4.add(s3); // 表示将s4加上s3赋值给s5中
+  s5.print();
 }

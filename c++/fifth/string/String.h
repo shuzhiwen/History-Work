@@ -1,5 +1,5 @@
 class String {
-	char *pt;
+	  char *pt;
 public:
     String();
     ~String();

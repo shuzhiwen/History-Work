@@ -17,5 +17,5 @@ CEmployee::~CEmployee() {
 void CEmployee::print() {
 	CPerson::print();
 	cout << "department: " << department << endl
-		 << "salary: " << salary << endl;
+		<< "salary: " << salary << endl;
 }

@@ -8,11 +8,11 @@ class MyClass {
 	string name;
 public:
 	MyClass();
-    MyClass(string name);
-    ~ MyClass();
-    MyClass (const MyClass& s);
-    MyClass & operator=(const MyClass& s);
+  MyClass(string name);
+  ~ MyClass();
+  MyClass (const MyClass& s);
+  MyClass & operator=(const MyClass& s);
 
-    void print() const;
-    static int getNumber();
+  void print() const;
+  static int getNumber();
 };

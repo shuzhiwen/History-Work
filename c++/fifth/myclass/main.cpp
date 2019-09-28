@@ -24,7 +24,7 @@ int main() {
 	cout << MyClass::getNumber() << endl;
 
 	if(nullptr != pm) {
-        delete[] pm;
-        pm = nullptr;
-    }
+    delete[] pm;
+    pm = nullptr;
+  }
 }
