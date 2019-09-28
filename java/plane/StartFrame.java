@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 public class StartFrame extends JFrame {
 
 	public StartFrame() {
-		setTitle("???");
+		setTitle("可达鸭打飞机");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Container cp = getContentPane();
