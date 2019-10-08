@@ -58,8 +58,8 @@ int vector_print(struct vector *vec) {
 	}
 
 	for (i = 0; i < vec->size; i++) {
-			printf("%f ", vec->data[i]);
-		}
+		printf("%f ", vec->data[i]);
+	}
 	printf("\n");
 
 	return 0;
