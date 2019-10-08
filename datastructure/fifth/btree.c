@@ -43,120 +43,120 @@ struct BTree *btree_from_pre_mid(char *pre, char *mid, int len) {
 // TODO:
 // 根据后序`post`和中序`mid`遍历构建一棵二叉树
 struct BTree *btree_from_post_mid(char *post, char *mid, int len) {
-	if (len == 0) {
-		return NULL;
-	}
+  if (len == 0) {
+    return NULL;
+  }
 
-	char *root = strchr(mid, post[len - 1]);
+  char *root = strchr(mid, post[len - 1]);
   if (root == NULL) {
     return NULL;
   }
 
   int ll = root - mid;
-	struct BTree *left = btree_from_post_mid(post, mid, ll);
-	struct BTree *right = btree_from_post_mid(post + ll, root + 1, len - ll - 1);
+  struct BTree *left = btree_from_post_mid(post, mid, ll);
+  struct BTree *right = btree_from_post_mid(post + ll, root + 1, len - ll - 1);
 
-	return btree_create(*root, left, right);
+  return btree_create(*root, left, right);
 }
 
 // TODO:
 // 根据层次`level`和中序`mid`遍历构建一棵二叉树
 struct BTree *btree_from_level_mid(char *level, char *mid, int len) {
-	if (len == 0) {
-		return NULL;
-	}
+  if (len == 0) {
+    return NULL;
+  }
 
   char *root = strchr(mid, level[0]);
   if (root == NULL) {
     return NULL;
   }
 
-	int ll = root - mid, count, j, k;
-	char *sl = malloc(sizeof(char) * ll);
-	char *sr = malloc(sizeof(char) * (len - ll));
+  int ll = root - mid, count, j, k;
+  char *sl = malloc(sizeof(char) * ll);
+  char *sr = malloc(sizeof(char) * (len - ll));
 
-	count = 0;
-	for (j = 1; j < len; j++) {
-		for (int k = 0; k < ll; k++) {
-			if (level[j] == mid[k]) {
-				sl[count++] = level[j];
-				break;
-			}
-		}
-	}
+  count = 0;
+  for (j = 1; j < len; j++) {
+    for (int k = 0; k < ll; k++) {
+      if (level[j] == mid[k]) {
+        sl[count++] = level[j];
+        break;
+      }
+    }
+  }
 
-	count = 0;
-	for (j = 1; j < len; j++) {
-		for (k = 0; k < ll; k++) {
-			if (level[j] == mid[k]) {
-				break;
-			}
-		}
-		if (k == ll) {
-			sr[count++] = level[j];
-		}
-	}
+  count = 0;
+  for (j = 1; j < len; j++) {
+    for (k = 0; k < ll; k++) {
+      if (level[j] == mid[k]) {
+        break;
+      }
+    }
+    if (k == ll) {
+      sr[count++] = level[j];
+    }
+  }
 
-	struct BTree *left = btree_from_level_mid(sl, mid, ll);
-	struct BTree *right = btree_from_level_mid(sr, root + 1, len - ll - 1);
+  struct BTree *left = btree_from_level_mid(sl, mid, ll);
+  struct BTree *right = btree_from_level_mid(sr, root + 1, len - ll - 1);
 
-	return btree_create(*root, left, right);
+  return btree_create(*root, left, right);
 }
 
 // TODO:
 // 根据字符串`s`构建一棵搜索二叉树
 struct BTree *btree_build_search_tree(char *s) {
-	struct BTree *root = btree_create(s[0], NULL, NULL);
+  struct BTree *root = btree_create(s[0], NULL, NULL);
 	
-	for (int i = 1; i < strlen(s); i++) {
-		struct BTree *p = root, *q = NULL;
-		int flag = 0; //标记当前节点是其父节点的左子树还是右子树
+  for (int i = 1; i < strlen(s); i++) {
+    struct BTree *p = root, *q = NULL;
+    int flag = 0; //标记当前节点是其父节点的左子树还是右子树
 
-		while(1) {
-			if(p != NULL) {
-				q = p;
-			}
+    while(1) {
+      if(p != NULL) {
+        q = p;
+      }
 			
-			if (p == NULL || p->data == s[i]) {
-				break;
-			} else if (s[i] > p->data) {
-				p = p->right;
-				flag = 1;
-			} else if (s[i] < p->data) {
-				p = p->left;
-				flag = 0;
-			}	
-		}
+      if (p == NULL || p->data == s[i]) {
+        break;
+      } else if (s[i] > p->data) {
+        p = p->right;
+        flag = 1;
+      } else if (s[i] < p->data) {
+        p = p->left;
+        flag = 0;
+      }	
+    }
 
-		if (p == NULL) {
-			p = malloc(sizeof(struct BTree));
-			p->data = s[i];
-			p->left = p->right = NULL;
-			if (q == NULL) {
-				continue;
-			} else if (flag == 1) {
-				q->right = p;
-			} else {
-				q->left = p;
-			}
-		}
-	}
+    if (p == NULL) {
+      p = malloc(sizeof(struct BTree));
+      p->data = s[i];
+      p->left = p->right = NULL;
+      if (q == NULL) {
+        continue;
+      } else if (flag == 1) {
+        q->right = p;
+      } else {
+        q->left = p;
+      }
+    }
+  }
 
-	return root;
+  return root;
 }
 
 // TODO:
 // 在二叉搜索树`root`中查找`value`，如果找到返回相应节点，否则返回NULL
 struct BTree *btree_find(struct BTree *root, char value) {
-	if (root == NULL) {
-		return NULL;
-	} else if (root->data == value) {
-		return root;
-	} else if (root->data > value) {
-		return btree_find(root->left, value);
-	} else {
-		return btree_find(root->right, value);
-	}
+  if (root == NULL) {
+    return NULL;
+  } else if (root->data == value) {
+    return root;
+  } else if (root->data > value) {
+    return btree_find(root->left, value);
+  } else {
+    return btree_find(root->right, value);
+  }
 }
 
 void btree_pre_order(struct BTree *root) {
@@ -191,43 +191,43 @@ void btree_post_order(struct BTree *root) {
 
 // 辅助函数
 struct BTree *btree_find_value(struct BTree *root, char value) {
-	if (root == NULL) {
-		return NULL;
-	} else if (root->data == value) {
-		return root;
-	} else {
-		struct BTree *p = btree_find_value(root->left, value);
-		struct BTree *q = btree_find_value(root->right, value);
+  if (root == NULL) {
+    return NULL;
+  } else if (root->data == value) {
+    return root;
+  } else {
+    struct BTree *p = btree_find_value(root->left, value);
+    struct BTree *q = btree_find_value(root->right, value);
 
-		if (p != NULL) {
-			return p;
-		} else if (q != NULL) {
-			return q;
-		} else {
-			return NULL;
-		}
-	}
+    if (p != NULL) {
+      return p;
+    } else if (q != NULL) {
+      return q;
+    } else {
+      return NULL;
+    }
+  }
 }
 
 // TODO:
 // 对二叉树进行层次遍历
 void btree_level_order(struct BTree *root) {
-	Queue q;
+  Queue q;
 
-	queue_init(&q);
-	queue_enqueue(&q, root->data);
-	while(!queue_empty(&q)) {
-		char data = queue_dequeue(&q);
-		struct BTree *p = btree_find_value(root, data);
+  queue_init(&q);
+  queue_enqueue(&q, root->data);
+  while(!queue_empty(&q)) {
+    char data = queue_dequeue(&q);
+    struct BTree *p = btree_find_value(root, data);
 
-		putchar(data);
-		if (p->left != NULL) {
-			queue_enqueue(&q, p->left->data);
-		}
-		if (p->right != NULL) {
-			queue_enqueue(&q, p->right->data);
-		}
-	}
+    putchar(data);
+    if (p->left != NULL) {
+      queue_enqueue(&q, p->left->data);
+    }
+    if (p->right != NULL) {
+      queue_enqueue(&q, p->right->data);
+    }
+  }
 }
 
 int max(int a, int b) { return a > b ? a : b; }
@@ -270,18 +270,18 @@ void btree_flip(struct BTree *root) {
 int btree_is_same(struct BTree *a, struct BTree *b) {
   int flag = 0;
 
-	if (a == NULL && b == NULL) {
-		return 1;
-	} else if (a == NULL && b != NULL || a != NULL && b == NULL){
-		return 0;
-	} else {
-		flag += btree_is_same(a->left, b->left) + btree_is_same(a->right, b->right);
-		if (a->data != b->data) {
-			flag = 0;
-		}
-	}
+  if (a == NULL && b == NULL) {
+    return 1;
+  } else if (a == NULL && b != NULL || a != NULL && b == NULL){
+    return 0;
+  } else {
+    flag += btree_is_same(a->left, b->left) + btree_is_same(a->right, b->right);
+    if (a->data != b->data) {
+      flag = 0;
+    }
+  }
 
-	return flag == 2 ? 1 : 0;
+  return flag == 2 ? 1 : 0;
 }
 
 // TODO:
@@ -289,29 +289,29 @@ int btree_is_same(struct BTree *a, struct BTree *b) {
 int btree_is_isomorphic(struct BTree *a, struct BTree *b) {
   int flag = 0;
 
-	if (a == NULL && b == NULL) {
-		return 1;
-	} else if (a == NULL && b != NULL || a != NULL && b == NULL) {
-		return 2;
-	}
+  if (a == NULL && b == NULL) {
+    return 1;
+  } else if (a == NULL && b != NULL || a != NULL && b == NULL) {
+    return 2;
+  }
 
-	if (a->data != b->data) {
-		return 2;
-	} else {
-		if (a->left != NULL && b->left != NULL && a->right != NULL &&b->right != NULL) {
-			if (a->left->data == b->left->data && a->right->data == b->right->data) {
-			  flag += btree_is_same(a->left, b->left) + btree_is_same(a->right, b->right);
-		  }
-		  if (a->left->data == b->right->data && a->right->data == b->left->data) {
-				flag += btree_is_same(a->left, b->right) + btree_is_same(a->right, b->left);
-			}
-		} else if (a->left == NULL && b->left == NULL && a->right != NULL &&b->right != NULL ||
-		           a->left != NULL && b->left != NULL && a->right == NULL &&b->right == NULL) {
-			flag += btree_is_same(a->left, b->left) + btree_is_same(a->right, b->right);
-		} else {
-			return 2;
-		}
-	}
+  if (a->data != b->data) {
+    return 2;
+  } else {
+    if (a->left != NULL && b->left != NULL && a->right != NULL &&b->right != NULL) {
+      if (a->left->data == b->left->data && a->right->data == b->right->data) {
+        flag += btree_is_same(a->left, b->left) + btree_is_same(a->right, b->right);
+      }
+      if (a->left->data == b->right->data && a->right->data == b->left->data) {
+        flag += btree_is_same(a->left, b->right) + btree_is_same(a->right, b->left);
+      }
+    } else if (a->left == NULL && b->left == NULL && a->right != NULL &&b->right != NULL ||
+      a->left != NULL && b->left != NULL && a->right == NULL &&b->right == NULL) {
+      flag += btree_is_same(a->left, b->left) + btree_is_same(a->right, b->right);
+    } else {
+      return 2;
+    }
+  }
 
-	return flag == 2 ? 1 : 2;
+  return flag == 2 ? 1 : 2;
 }
