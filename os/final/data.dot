@@ -1,5 +1,0 @@
-graph tree {
-	root -- d2
-	root -- f1
-	root -- f2
-}
