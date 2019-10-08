@@ -197,7 +197,9 @@ void bfs(struct Graph *g, int v, int pre_index) {
     if (!queue_empty(&q)) {
       v = queue_front(&q)->data;
       pre_index = v;
-    } else { break; }
+    } else { 
+      break;
+    }
   }
 }
 
@@ -212,18 +214,16 @@ void graph_save(struct Graph *g, const char *filename) {
   FILE *fp = fopen(filename, "w");
 
   fprintf(fp, "strict %sgraph {\n", g->type == DIRECTED_GRAPH ? "di" : "");
-
   for (int i = 0; i < g->v; i++) {
     struct ListNode *p = Vertex_list(g, i)->head;
 
     while (p != NULL) {
       fprintf(fp, "\t%d %s %d [label = %d]\n", i, 
       g->type == DIRECTED_GRAPH ? "->" : "--", p->data, p->weight);
-			
       p = p->next;
     }
   }
-
+  
   fprintf(fp, "}\n");
   fclose(fp);
 }
@@ -382,7 +382,7 @@ void graph_spanning_tree_kruskal(struct Graph *g, struct Graph *t) {
       if (edges[i].weight < edges[j].weight) {
         struct edge tmp = edges[i];
         
-	edges[i] = edges[j];
+        edges[i] = edges[j];
         edges[j] = tmp;
       }
     }
