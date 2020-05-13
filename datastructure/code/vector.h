@@ -5,9 +5,9 @@
 typedef struct station Vec_DataType;
 
 struct Vector {
-  int capacity;
-  int size;
-  Vec_DataType *buffer;
+    int capacity;
+    int size;
+    Vec_DataType *buffer;
 };
 
 /* Allocate and destroy buffer for vector */

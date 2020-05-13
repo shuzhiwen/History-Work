@@ -1,9 +1,9 @@
 #pragma once
 
-#include "list.h"
 #include "common.h"
-#include "vector.h"
+#include "list.h"
 #include "trietree.h"
+#include "vector.h"
 
 void time_correction(char *t);
 

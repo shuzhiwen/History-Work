@@ -1,9 +1,9 @@
 #pragma once
 
 #include "common.h"
+#include "init_help.h"
 #include "output.h"
 #include "trietree.h"
-#include "init_help.h"
 
 void transformation_scene(struct trietree *root, struct Vector *v, int sign);
 

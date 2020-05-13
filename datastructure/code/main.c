@@ -1,23 +1,23 @@
-#include "vector.h"
-#include "window.h"
-#include "init_help.h"
-
 #include <stdio.h>
 
+#include "init_help.h"
+#include "vector.h"
+#include "window.h"
+
 int main() {
-  printf("\n\n\tThe system is loading, please wait...\n\n");
-  
-  struct trietree *T = NULL;
-  struct Vector vec;
+    printf("\n\n\tThe system is loading, please wait...\n\n");
 
-  station_init(&vec);
-  T = trietree_build_stat(&vec);
-  printf("\n\t     Route init failed : %d\n", route_init(T, &vec));
+    struct trietree *T = NULL;
+    struct Vector vec;
 
-  main_window(T, &vec, 0);
+    station_init(&vec);
+    T = trietree_build_stat(&vec);
+    printf("\n\t     Route init failed : %d\n", route_init(T, &vec));
 
-  vector_destroy(&vec);
-  trietree_free(T);
+    main_window(T, &vec, 0);
 
-  return 0;
+    vector_destroy(&vec);
+    trietree_free(T);
+
+    return 0;
 }
