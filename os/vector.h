@@ -3,16 +3,16 @@
 #include "common.h"
 
 struct File {
-  int count; //被引用数量
-  char name[20]; //文件名
+    int count;      //被引用数量
+    char name[20];  //文件名
 };
 
 typedef struct File Vec_DataType;
 
 struct Vector {
-  int capacity;
-  int size;
-  Vec_DataType *buffer;
+    int capacity;
+    int size;
+    Vec_DataType *buffer;
 };
 
 /* Allocate and destroy buffer for vector */
