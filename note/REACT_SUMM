@@ -1,0 +1,42 @@
+React官方文档高级指引要点
+
+一、代码分割
+（1）打包是一个将文件引入并合并到一个单独文件的过程，最终形成一个 “bundle”。接着在页面上引入该 bundle，整个应用即可一次性加载。
+（2）复杂应用的代码包非常庞大，为了提高加载效率，可以进行代码分割，即“懒加载”当前需要的内容，减少初始加载的代码量。
+（3）在应用中引入代码分割的最佳方式是使用动态 import 方法: import("./math").then(math => math.add(16, 26));
+（4）懒加载的另一种方法是借助 React.lazy 和 Suspense 组件: 不支持服务端渲染；只支持默认导出；一般基于路由进行分割。
+
+二、Context
+（1）Context 提供了一种在组件之间共享值的方式，而不必显式地通过组件树逐层传递 props，多用于共享如主题之类的全局数据。
+（2）React.createContext(defaultValue): 创建一个 Context 对象，undefined 会覆盖 defaultValue。
+（3）Context.Provider: <MyContext.Provider value={/* 某个值 */}>，value 发生变化时，其下所有消费组件都会重新渲染。
+（4）Class.contextType: 为 class 类绑定某个 Context，可以使用 public class fields 语法。
+（5）Context.consumer: <MyContext.Consumer>{value => /* 基于 context 值进行渲染 */}</MyContext.Consumer>
+（6）动态 Context: Context 的 value 可以是某一对象，包含数据和改变数据的函数，通常和 state 关联。
+（7）为了避免不必要的渲染，Provider 的 value 最好是外部对象引用（通常为父节点的 
+
+三、错误边界
+（1）错误边界是一种 React 组件，这种组件可以捕获并打印发生在其子组件树任何位置的 JavaScript 错误，并且，它会渲染出备用 UI。
+（2）错误边界无法捕获: 事件处理错误；异步代码错误；服务端渲染错误；自身错误。
+（3）错误边界至少需要定义 static getDerivedStateFromError() 和 componentDidCatch() 两个中的一个。
+（4）static getDerivedStateFromError() 用于渲染备用 UI 而 componentDidCatch() 用于打印错误信息。
+（5）错误边界的 render 返回需要展示的 UI: 如判断无错则返回 this.props.children。
+（6）错误边界只针对 React 组件，只有 class 组件才能成为错误边界。
+
+四、Refs转发
+（1）Ref 转发是一项将 ref 自动地通过组件传递到其一子组件的技巧，多用于高可复用的“叶”组件。
+（2）使用方式: const FancyButton = React.forwardRef((props, ref) => <button ref={ref}></button>)
+（3）必须使用 forwardRef 函数，常规函数和类组件不接受 ref 参数，props 中也不存在 ref。
+（4）由于 Ref 不是 Props 属性，其不能被透传，转发到类中时，外包一层形如（2）的中间件。
+
+五、Fragments
+（1）Fragments 允许将子列表分组，而无需向 DOM 添加额外节点。
+（2）<Fragment> == <> 并且 </Fragment> == </>，只有显示声明才有 key 属性。
+
+六、高阶组件
+（1）高阶组件（HOC）是 React 中用于复用组件逻辑的一种高级技巧: 接收组件形式的参数并返回新组件的“高级”组件，开发模式的一种抽象。
+（2）HOC 不修改原始组件，不使用继承（使用的是组件包装），没用副作用（需要人为控制）。
+（3）分离思想：HOC 不需要关心数据的使用方式或原因，而被包装组件也不需要关心数据是怎么来的。
+（4）HOC 应该透传与自身无关的 props: const { extraProp, ...passThroughProps } = this.props;
+（5）不应该在 render 方法里使用 HOC，因为每次渲染都会返回一个新的组件。
+（6）HOC 的容器组件应该复制原组件的所有静态方法: NewComponent.staticMethod = OldComponent.staticMethod;
