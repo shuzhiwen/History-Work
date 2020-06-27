@@ -139,7 +139,7 @@ React Reference API
 （1）挂载: constructor > static getDerivedStateFromProps > render > componentDidMount 
 （2）更新: static getDerivedStateFromProps > shouldComponentUpdate > render > getSnapshotBeforeUpdate > componentDidUpdate
 （3）卸载: componentWillUnmount
-（4）错误: static getDerivedStateFromError > componentDidCatch()
+（4）错误: static getDerivedStateFromError > componentDidCatch
 （5）render: 必须包含在 class 组件中，应该为纯函数（参数不变时调用结果相同）
 （6）constructor(props): 构造函数（可省），需要 super(props)，不能调用 setState，不建议将 props 赋值给 state。
 （7）componentDidMount: 在组件挂载（插入 DOM 树）后调用，在此处进行一些依赖 DOM 的操作。
@@ -179,8 +179,3 @@ React Reference API
 （18）协调: 当组件的 props 或 state 发生变化时，React 通过比较渲染的新旧元素，来决定是否更新。这个过程被称为“协调”。
 
 ===================================================================================================
-
-React HOOK
-
-（1）
-（2）
