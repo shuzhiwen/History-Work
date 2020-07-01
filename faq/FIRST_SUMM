@@ -52,7 +52,7 @@
 （6）CORS 需要浏览器和服务器同时支持，目前主流浏览器都支持此标准（自动处理），实现关键在于服务器。
 （6-1）请求分为简单请求和非简单请求；简单请求是为了兼容表单；注意简单请求和复杂请求的 Content-Type；浏览器对这两种请求的处理方式不同。
 （6-2）简单请求: 浏览器会在请求头中添加一个 Origin 字段，服务器拒绝则返回正常响应，接收则会在响应中添加以 Access-Control 开头的多个字段。
-（6-2-1）Access-Control-Allow-Origin: 该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个 *，表示接受任意域名的请求。
+（6-2-1）Access-Control-Allow-Origin: 该字段是必须的。它的值要么是请求时 Origin 字段的值，要么是一个 *，表示接受任意域名的请求。
 （6-2-2）Access-Control-Allow-Credentials: 可选字段。它的值是一个布尔值，表示是否允许发送 Cookie。
 （6-2-3）Access-Control-Expose-Headers: 可选字段。指定 getResponseHeader 方法可以拿到的其他字段。
 （6-2-4）如果要发送 Cookie，Access-Control-Allow-Origin 必须明确指定域名，Cookie 依然遵循同源政策。
