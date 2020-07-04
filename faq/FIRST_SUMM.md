@@ -27,7 +27,7 @@
 1. `Http` 是一个基于 `TCP/IP` 通信协议来传输数据的协议，一般用于 `C/S` 架构。传输的数据类型为 `HTML` 文件、图片文件、查询结果等。
 2. `URI` : Uniform Resource Identifier 统一资源标识符（是什么）; `URL` : Uniform Resource Location 统一资源定位符（在哪里）。
 3. `POST` 和 `GET` 的区别: `POST` 多了请求体 `body` 用于存放请求数据。 `GET` 请求参数放在 `URL` 中，而 `URL` 长度有限制。
-4. Http 的问题: 信息明文传输容易被截取，数据完整性未校验容易被篡改，没有身份验证机制。
+4. `Http` 的问题: 信息明文传输容易被截取，数据完整性未校验容易被篡改，没有身份验证机制。
 
 #### Https（Hyper Text Transfer Protocal over Secure Socket Layer）: 一般理解为 Http + SSL/TLS。
 
@@ -39,18 +39,18 @@
 
 #### Https 是 Http 协议的安全版本，Http 协议的数据传输是明文的，是不安全的，Https 使用了 SSL/TLS 协议进行了加密处理。
 
-* 默认端口: Http（80）; Https（443）。
+* 默认端口: `Http` （80）; `Https` （443）。
 
 ## 二、React 的生命周期
 
-1. 挂载: constructor => getDerivedStateFromProps => render => componentDidMount
-2. 更新: getDerivedStateFromProps => shouldComponentUpdate => render => getSnapshotBeforeUpdate => componentDidUpdate
-3. 卸载: componentDidUnMount
-4. 错误: getDerivedStateFromError => componentDidCatch
+1. 挂载: `constructor` => `getDerivedStateFromProps` => `render` => `componentDidMount`
+2. 更新: `getDerivedStateFromProps` => `shouldComponentUpdate` => `render` => `getSnapshotBeforeUpdate` => `componentDidUpdate`
+3. 卸载: `componentDidUnMount`
+4. 错误: `getDerivedStateFromError` => `componentDidCatch`
 
 ## 三、Javascript 的事件循环
 
-1. Javascript 运行时，除了一个正在运行的主线程，引擎还提供一个（实际按任务类型分为多个）任务队列，里面是需要处理的异步任务。
+1. `Javascript` 运行时，除了一个正在运行的主线程，引擎还提供一个（实际按任务类型分为多个）任务队列，里面是需要处理的异步任务。
 2. 主线程首先会处理同步任务，再将任务队列里满足条件的异步任务纳入主线程，这时异步任务变成了同步任务，如此循环，直到队列为空。
 3. 异步任务的主要写法是回调函数。异步任务一旦进入主线程就会执行回调函数，没有回调函数的异步任务不会进入任务队列，即不会进入主线程。
 4. 事件循环: 一种循环检查的机制，只要同步任务执行完了，引擎就会检查挂起的异步任务，是不是可以进入主线程了。
@@ -58,61 +58,60 @@
 
 ## 四、React 技术栈
 
-* React: 基本开发模块
-* React-Router: 前端路由导航
-* Redux: 状态（数据）管理
-* Babel: 将 ES6 代码转为 ES5 代码
-* Webpack: 前端打包工具
-* create-react-app 脚手架打包的其他工具
+* `React` : 基本开发模块
+* `React-Router` : 前端路由导航
+* `Redux` : 状态（数据）管理
+* `Babel` : 将 `ES6` 代码转为 `ES5` 代码
+* `Webpack` : 前端打包工具
 
 ## 五、跨域的解决方案以及为什么会有跨域问题
 
 1. 浏览器安全的基石是同源策略，同源指的是协议相同、域名相同、端口相同，目的是保护用户信息安全（表单不受此限制）。
-2. 非同源受限: Cookie、LocalStorage、IndexDB 等数据不能读取、DOM 无法获得、AJAX 请求不能发送。
-3. 不同页面在一级域名相同的情况下规避同源策略: 设置 document.domain 为一级域名，二三级域名以下的网页即可进行共享。
-4. 不同页面在一级域名不同的情况下规避同源策略: 设置 fragment identifier、window.name、window.postMessage 等。
+2. 非同源受限: `Cookie` 、 `LocalStorage` 、 `IndexDB` 等数据不能读取、 `DOM` 无法获得、 `AJAX` 请求不能发送。
+3. 不同页面在一级域名相同的情况下规避同源策略: 设置 `document.domain` 为一级域名，二三级域名以下的网页即可进行共享。
+4. 不同页面在一级域名不同的情况下规避同源策略: 设置 `fragment identifier` 、 `window.name` 、 `window.postMessage` 等。
 
 #### AJAX 规避同源策略（重要）: JSONP、WebSocket、CORS
 
-1. JSONP（GET）: 简单实用、兼容性好，基本思想是网页通过添加一个 `<script>` 元素，向服务器请求 JSON 数据，注意查询的 callback 参数。
-2. WebSocket: 一种通信协议，使用 ws://（非加密）和 wss://（加密）作为协议前缀。该协议不实行同源政策，服务器可根据请求的 Origin 字段判断。
-3. CORS: 跨域资源共享（Cross-Origin Resource Sharing）的缩写，是 W3C 标准，跨域 AJAX 的根本解决方法。
+1. `JSONP` （GET）: 简单实用、兼容性好，基本思想是网页通过添加一个 `<script>` 元素，向服务器请求 `JSON` 数据，注意查询的 `callback` 参数。
+2. `WebSocket` : 一种通信协议，使用 `ws://` （非加密）和 `wss://` （加密）作为前缀。该协议不实行同源政策，服务器可根据请求的 `Origin` 字段判断。
+3. `CORS` : 跨域资源共享（Cross-Origin Resource Sharing）的缩写，是 `W3C` 标准，跨域 `AJAX` 的根本解决方法。
 
 #### CORS 需要浏览器和服务器同时支持，目前主流浏览器都支持此标准（自动处理），实现关键在于服务器。
 
-1. 请求分为简单请求和非简单请求; 简单请求是为了兼容表单; 注意简单请求和复杂请求的 Content-Type; 浏览器对这两种请求的处理方式不同。
-2. 简单请求: 浏览器会在请求头中添加一个 Origin 字段，服务器拒绝则返回正常响应，接收则会在响应中添加以 Access-Control 开头的多个字段。
+1. 请求分为简单请求和非简单请求; 简单请求是为了兼容表单; 注意简单请求和复杂请求的 `Content-Type` ; 浏览器对这两种请求的处理方式不同。
+2. 简单请求: 浏览器会在请求头中添加一个 `Origin` 字段，服务器拒绝则返回正常响应，接收则会在响应中添加以 `Access-Control` 开头的多个字段。
 
-   * Access-Control-Allow-Origin: 该字段是必须的。它的值要么是请求时 Origin 字段的值，要么是一个 *，表示接受任意域名的请求。
-   * Access-Control-Allow-Credentials: 可选字段。它的值是一个布尔值，表示是否允许发送 Cookie。
-   * Access-Control-Expose-Headers: 可选字段。指定 getResponseHeader 方法可以拿到的其他字段。
-   * 如果要发送 Cookie，Access-Control-Allow-Origin 必须明确指定域名，Cookie 依然遵循同源政策。
+   * `Access-Control-Allow-Origin` : 该字段是必须的。它的值要么是请求时 `Origin` 字段的值，要么是一个 *，表示接受任意域名的请求。
+   * `Access-Control-Allow-Credentials` : 可选字段。它的值是一个布尔值，表示是否允许发送 `Cookie` 。
+   * `Access-Control-Expose-Headers` : 可选字段。指定 `getResponseHeader` 方法可以拿到的其他字段。
+   * 如果要发送 `Cookie` ， `Access-Control-Allow-Origin` 必须明确指定域名， `Cookie` 依然遵循同源政策。
 
-3. 非简单请求: 在正式请求之前，会增加一次 HTTP 查询请求，称为预检请求，用于验证服务器是否正常工作以及获取某些配置信息。
+3. 非简单请求: 在正式请求之前，会增加一次 `HTTP` 查询请求，称为预检请求，用于验证服务器是否正常工作以及获取某些配置信息。
 
-   * Access-Control-Request-Method: 该字段是必须的。列出浏览器的 CORS 会用到哪些 HTTP 方法（如 PUT）。
-   * Access-Control-Request-Headers: 该字段是一个逗号分隔的字符串，指定浏览器 CORS 请求会额外发送的头信息字段。
+   * `Access-Control-Request-Method` : 该字段是必须的。列出浏览器的 `CORS` 会用到哪些 `HTTP` 方法（如 `PUT` ）。
+   * `Access-Control-Request-Headers` : 该字段是一个逗号分隔的字符串，指定浏览器 `CORS` 请求会额外发送的头信息字段。
 
 4. 预检请求的响应字段和简单响应类似，但是字段稍有不同，只有预检通过才可以发送正式请求。
 
-   * Access-Control-Allow-Origin: 含义和简单请求相同。
-   * Access-Control-Allow-Methods: 该字段是必须的，它的值是逗号分隔的一个字符串，表明服务器支持的所有跨域请求的方法。
-   * Access-Control-Allow-Headers: 如果请求包括 Access-Control-Request-Headers，则响应需要 Access-Control-Allow-Headers。
-   * Access-Control-Allow-Credentials: 含义和简单请求相同。
-   * Access-Control-Max-Age: 预检请求的有效期，单位为秒，在此期间不用发送另一条预检请求。
+   * `Access-Control-Allow-Origin` : 含义和简单请求相同。
+   * `Access-Control-Allow-Methods` : 该字段是必须的，它的值是逗号分隔的一个字符串，表明服务器支持的所有跨域请求的方法。
+   * `Access-Control-Allow-Headers` : 如果请求包括 `Access-Control-Request-Headers` ，则响应需要 `Access-Control-Allow-Headers` 。
+   * `Access-Control-Allow-Credentials` : 含义和简单请求相同。
+   * `Access-Control-Max-Age` : 预检请求的有效期，单位为秒，在此期间不用发送另一条预检请求。
 
 ## 六、Node.js 常用的框架和组件
 
-* fs: 基础的文件管理模块。
-* path: 简化路径操作，提升代码可读性。
-* url: 解析 url，拼接 url，生成 url。
-* querystring: url 参数字符串与参数对象之间的转换。
-* request: 发送 HTTP 请求等。
-* express: web 框架（路由等）。
-* jsonwebtoken: 处理 token 的有关操作。
-* multer: 处理文件类型的 post。
-* mysql: 与 mysql 数据库进行通讯。
-* xlsx: 处理 excel 表格。
+* `fs` : 基础的文件管理模块。
+* `path` : 简化路径操作，提升代码可读性。
+* `url` : 解析 `url` ，拼接 `url` ，生成 `url` 。
+* `querystring` : `url` 参数字符串与参数对象之间的转换。
+* `request` : 发送 `HTTP` 请求等。
+* `express` : `web` 框架（路由等）。
+* `jsonwebtoken` : 处理 `token` 的有关操作。
+* `multer` : 处理文件类型的 `post` 。
+* `mysql` : 与 `mysql` 数据库进行通讯。
+* `xlsx` : 处理 `excel` 表格。
 
 ## 七、Javascript 是单线程还是多线程
 
