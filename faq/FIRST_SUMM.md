@@ -1,21 +1,21 @@
-公司: C+
-时间: 2020/6/4
-岗位: 前端实习生
-总评: 一知半解
+* 公司: C+
+* 时间: 2020/6/4
+* 岗位: 前端实习生
+* 总评: 一知半解
 
 # Http 和 Https？
-## Http 是超文本传输协议（Hyper Text Transfer Protocol）的缩写。设计 Http 的最初目的是为了提供一种发布和接收 HTML 页面的方法。
+#### Http 是超文本传输协议（Hyper Text Transfer Protocol）的缩写。设计 Http 的最初目的是为了提供一种发布和接收 HTML 页面的方法。
 1. Http 是一个基于 TCP/IP 通信协议来传输数据的协议，一般用于 C/S 架构。传输的数据类型为HTML 文件、图片文件、查询结果等。
 2. URI：Uniform Resource Identifier 统一资源标识符（是什么）；URL：Uniform Resource Location 统一资源定位符（在哪里）。
 3. POST 和 GET 的区别: POST 多了请求体 body 用于存放请求数据。GET 请求参数放在 URL 中，而 URL 长度有限制。
 4. Http 的问题: 信息明文传输容易被截取，数据完整性未校验容易被篡改，没有身份验证机制。
-## Https（Hyper Text Transfer Protocal over Secure Socket Layer）: 一般理解为 Http + SSL/TLS。
+#### Https（Hyper Text Transfer Protocal over Secure Socket Layer）: 一般理解为 Http + SSL/TLS。
 1. Https 通过 SSL 证书来验证服务器的身份，并为浏览器和服务器之间的通信进行加密。
 2. SSL（Secure Socket Layer）安全套接字层: 位于 TCP/IP 与各种应用层协议之间。
 3. TLS（Transport Layer Security）传输层安全。
 4. Https 通信流程: 客户端访问服务器建立 SSL 连接 => 服务端返回证书（包含公钥） => 协商加密等级 => 浏览器生成密钥并用公钥加密 => 将加密后的密钥返回给服务器 => 服务器利用自身私钥解密密钥 => 服务器利用密钥加密与客户端之间的通信。
 5. Https 的问题: 多次通信导致页面加载时间延长；缓存没有 Http 高效，增大开销和功耗；申请 SSL 证书需要资金。
-## 总结: Https 是 Http 协议的安全版本，Http 协议的数据传输是明文的，是不安全的，Https 使用了 SSL/TLS 协议进行了加密处理。
+#### 总结: Https 是 Http 协议的安全版本，Http 协议的数据传输是明文的，是不安全的，Https 使用了 SSL/TLS 协议进行了加密处理。
 1. 默认端口: Http（80）；Https（443）。
 
 二、React 的生命周期（具体）？
