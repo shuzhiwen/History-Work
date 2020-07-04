@@ -22,14 +22,14 @@
 
 ## 一、Http 和 Https
 
-#### Http 是超文本传输协议（Hyper Text Transfer Protocol）的缩写。设计 Http 的最初目的是为了提供一种发布和接收 HTML 页面的方法。
+#### Http 超文本传输协议（Hyper Text Transfer Protocol）
 
 * Http 是一个基于 TCP/IP 通信协议来传输数据的协议，一般用于 C/S 架构。传输的数据类型为 HTML 文件、图片文件、查询结果等。
 * URI：Uniform Resource Identifier 统一资源标识符（是什么）; URL：Uniform Resource Location 统一资源定位符（在哪里）。
 * POST 和 GET 的区别: POST 多了请求体 body 用于存放请求数据。GET 请求参数放在 URL 中，而 URL 长度有限制。
 * Http 的问题: 信息明文传输容易被截取，数据完整性未校验容易被篡改，没有身份验证机制。
 
-#### Https（Hyper Text Transfer Protocal over Secure Socket Layer）: 一般理解为 Http + SSL/TLS。
+#### Https（Hyper Text Transfer Protocal over Secure Socket Layer）
 
 * Https 通过 SSL 证书来验证服务器的身份，并为浏览器和服务器之间的通信进行加密。
 * SSL（Secure Socket Layer）安全套接字层: 位于 TCP/IP 与各种应用层协议之间。
