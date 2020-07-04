@@ -3,7 +3,7 @@
 * 岗位: 前端实习生
 * 总评: 一知半解
 
-* _[一、Http 和 Https](#一、Http-和-Https)_
+* _[一、Http 和 Https](#一、http-和-https)_
 * _[二、React 的生命周期](#二、React-的生命周期（具体）)_
 * _[三、Javascript 的事件循环](#三、Javascript-的事件循环)_
 * _[四、React 技术栈（全家桶）](#四、React-技术栈（全家桶）)_
