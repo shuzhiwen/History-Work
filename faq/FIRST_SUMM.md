@@ -5,14 +5,14 @@
 
 # Http 和 Https？
 
-### Http 是超文本传输协议（Hyper Text Transfer Protocol）的缩写。设计 Http 的最初目的是为了提供一种发布和接收 HTML 页面的方法。
+#### Http 是超文本传输协议（Hyper Text Transfer Protocol）的缩写。设计 Http 的最初目的是为了提供一种发布和接收 HTML 页面的方法。
 
 1. Http 是一个基于 TCP/IP 通信协议来传输数据的协议，一般用于 C/S 架构。传输的数据类型为 HTML 文件、图片文件、查询结果等。
 2. URI：Uniform Resource Identifier 统一资源标识符（是什么）; URL：Uniform Resource Location 统一资源定位符（在哪里）。
 3. POST 和 GET 的区别: POST 多了请求体 body 用于存放请求数据。GET 请求参数放在 URL 中，而 URL 长度有限制。
 4. Http 的问题: 信息明文传输容易被截取，数据完整性未校验容易被篡改，没有身份验证机制。
 
-### Https（Hyper Text Transfer Protocal over Secure Socket Layer）: 一般理解为 Http + SSL/TLS。
+#### Https（Hyper Text Transfer Protocal over Secure Socket Layer）: 一般理解为 Http + SSL/TLS。
 
 1. Https 通过 SSL 证书来验证服务器的身份，并为浏览器和服务器之间的通信进行加密。
 2. SSL（Secure Socket Layer）安全套接字层: 位于 TCP/IP 与各种应用层协议之间。
@@ -20,7 +20,7 @@
 4. Https 通信流程: 客户端访问服务器建立 SSL 连接 => 服务端返回证书（包含公钥） => 协商加密等级 => 浏览器生成密钥并用公钥加密 => 将加密后的密钥返回给服务器 => 服务器利用自身私钥解密密钥 => 服务器利用密钥加密与客户端之间的通信。
 5. Https 的问题: 多次通信导致页面加载时间延长; 缓存没有 Http 高效，增大开销和功耗; 申请 SSL 证书需要资金。
 
-### Https 是 Http 协议的安全版本，Http 协议的数据传输是明文的，是不安全的，Https 使用了 SSL/TLS 协议进行了加密处理。
+#### Https 是 Http 协议的安全版本，Http 协议的数据传输是明文的，是不安全的，Https 使用了 SSL/TLS 协议进行了加密处理。
 
 * 默认端口: Http（80）; Https（443）。
 
@@ -55,13 +55,13 @@
 3. 不同页面在一级域名相同的情况下规避同源策略: 设置 document.domain 为一级域名，二三级域名以下的网页即可进行共享。
 4. 不同页面在一级域名不同的情况下规避同源策略: 设置 fragment identifier、window.name、window.postMessage 等。
 
-### AJAX 规避同源策略（重要）: JSONP、WebSocket、CORS。
+#### AJAX 规避同源策略（重要）: JSONP、WebSocket、CORS。
 
 1. JSONP（GET）: 简单实用、兼容性好，基本思想是网页通过添加一个 `<script>` 元素，向服务器请求 JSON 数据，注意查询的 callback 参数。
 2. WebSocket: 一种通信协议，使用 ws://（非加密）和 wss://（加密）作为协议前缀。该协议不实行同源政策，服务器可根据请求的 Origin 字段判断。
 3. CORS: 跨域资源共享（Cross-Origin Resource Sharing）的缩写，是 W3C 标准，跨域 AJAX 的根本解决方法。
 
-### CORS 需要浏览器和服务器同时支持，目前主流浏览器都支持此标准（自动处理），实现关键在于服务器。
+#### CORS 需要浏览器和服务器同时支持，目前主流浏览器都支持此标准（自动处理），实现关键在于服务器。
 
 1. 请求分为简单请求和非简单请求; 简单请求是为了兼容表单; 注意简单请求和复杂请求的 Content-Type; 浏览器对这两种请求的处理方式不同。
 2. 简单请求: 浏览器会在请求头中添加一个 Origin 字段，服务器拒绝则返回正常响应，接收则会在响应中添加以 Access-Control 开头的多个字段。
@@ -185,7 +185,7 @@
 5. prototype 对象有一个 constructor 属性，默认指向 prototype 的构造函数，作用是指明实例对象是由哪个构造函数产生的。
 6. 通常情况下，改写对象原型的同时也要修改 constructor 属性，否则只在原型上添加方法即可（而不是替换整个原型）。
 
-### 构造函数的继承
+#### 构造函数的继承
 
 1. 第一步是在子类的构造函数内调用父类的构造函数; 第二步是让子类的原型指向父类的原型（不可以浅复制）。
 2. 继承方法二: 让子类的原型等于一个父类实例（这种方法会使子类拥有父类实例的方法，不一定是我们想要的）
