@@ -267,23 +267,3 @@ console           __控制台对象__
                   <-monitorEvents（object，[events]）监听特定对象上发生的特定事件，unmonitorEvents（object，[events]）停止监听
                   <-clear()清除控制台的历史，copy（object）复制特定DOM元素到剪贴板
                   debugger语句：用于除错，设置断点，可配合console.log使用
-
-window            __窗口对象__
-                  获取文档显示区域的宽度和高度：innerWidth、innerHeight
-                  打开一个新的窗口：open（输入网址）建议使用超链接而不是open方法
-
-screen            __用户屏幕对象__
-                  获取用户屏幕的分辨率：width、height
-                  获取当前屏幕可用区域的大小：availWidth、availHeight
-
-navigator         __浏览器对象__
-                  浏览器信息：appName浏览器产品名称、appVersion浏览器版本号、appCodeName浏览器内部代码
-                  <-plateform操作系统、cookieEnabled是否启用Cookies、userAgent浏览器的用户代理报头
-
-history           __浏览历史对象__
-                  获取上一次的访问：back()，获取上N次的访问：go（-N）
-
-location          __浏览地址对象__
-                  浏览信息：protocol协议、hostname主机名、port端口号（默认80，不显示）、host主机和端口号
-                  <-pathname访问路径、hash锚点、search参数列表
-                  刷新当前页面：reload()；跳转到另一个页面：location = 网址，assign/href（网址）
