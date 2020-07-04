@@ -1,4 +1,4 @@
-## 面试问题目录
+## 目录结构
 
 * _[一、Http 和 Https](#一http-和-https)_
 * _[二、React 的生命周期](#二react-的生命周期)_
@@ -163,17 +163,16 @@
 
 ## 十四、React 中的优化方案
 
-#### 首次加载时优化: 引入代码分割，组件通过懒加载的方式动态导入。
+1. 首次加载时优化: 引入代码分割，组件通过懒加载的方式动态导入。
+2. 程序运行时优化: 避免不必要的更新和渲染。
 
-#### 程序运行时优化: 避免不必要的更新和渲染。
-
-1. 使用生产版本而不是开发版本（Create React App 生成的 build 文件就是生产版本）
-2. 使用 Chrome 开发者工具检测是否有不相关的组件被错误地更新，从而改进代码。
-3. 虚拟化长列表，只更新必要的数据而不会因为过量的 DOM 操作卡顿，使用 react-virtualized。
-4. 继承 `React.PureComponent` ，它用当前与之前 props 和 state 值的浅比较复写了 shouldComponentUpdate() 的实现。
-5. 使用 `React.PureComponent` 时，更新 state 和 props 中的变量需要避免可变对象的产生。
-6. 组合 React 组件时，不要将箭头函数赋值给 JSX 属性，这可能导致每次渲染都会产生一个新的函数，常见情景为函数绑定。
-7. 将组件尽可能地拆分、解耦，同时不要滥用 props（只传必要的数据）。
+   * 使用生产版本而不是开发版本（Create React App 生成的 build 文件就是生产版本）
+   * 使用 Chrome 开发者工具检测是否有不相关的组件被错误地更新，从而改进代码。
+   * 虚拟化长列表，只更新必要的数据而不会因为过量的 DOM 操作卡顿，使用 react-virtualized。
+   * 继承 `React.PureComponent` ，它用当前与之前 props 和 state 值的浅比较复写了 shouldComponentUpdate() 的实现。
+   * 使用 `React.PureComponent` 时，更新 state 和 props 中的变量需要避免可变对象的产生。
+   * 组合 React 组件时，不要将箭头函数赋值给 JSX 属性，这可能导致每次渲染都会产生一个新的函数，常见情景为函数绑定。
+   * 将组件尽可能地拆分、解耦，同时不要滥用 props（只传必要的数据）。
 
 ## 十五、在使用 React Native 中遇到了什么困难
 
