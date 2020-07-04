@@ -3,25 +3,25 @@
 * 岗位: 前端实习生
 * 总评: 一知半解
 
-_[一、Http 和 Https](#一、Http-和-Https)_
-_[二、React 的生命周期](#二、React-的生命周期（具体）)_
-_[三、Javascript 的事件循环](#三、Javascript-的事件循环)_
-_[四、React 技术栈（全家桶）](#四、React-技术栈（全家桶）)_
-_[五、跨域的解决方案以及为什么会有跨域问题](#五、跨域的解决方案以及为什么会有跨域问题)_
-_[六、Node.js 常用的框架和组件（我用过的）](#六、Node.js-常用的框架和组件（我用过的）)_
-_[七、Javascript 是单线程还是多线程](#七、Javascript-是单线程还是多线程)_
-_[八、React 如何用某种手段保存登录状态（Cookie 不安全）](#八、React-如何用某种手段保存登录状态（Cookie-不安全）)_
-_[九、Javascript 如何进行数组去重](#九、Javascript-如何进行数组去重)_
-_[十、TCP 和 UDP 的区别](#十、TCP-和-UDP-的区别)_
-_[十一、React Native 出现的原因](#十一、React-Native-出现的原因)_
-_[十二、使用过的 React Native 第三方控件库](#十二、使用过的-React-Native-第三方控件库)_
-_[十三、React 中 class 出现的原因（和 function 有什么区别）](#十三、React-中-class-出现的原因（和-function-有什么区别）)_
-_[十四、React 中的优化方案（提升运行效率的方法）](#十四、React-中的优化方案（提升运行效率的方法）)_
-_[十五、在使用 React Native 中遇到了什么困难](#十五、在使用-React-Native-中遇到了什么困难)_
-_[十六、React-Router 的跳转方式及实现原理](#十六、React-Router-的跳转方式及实现原理)_
-_[十七、setState 是异步的吗？为什么情况下需要用同步的 setState](#十七、setState-是异步的吗？为什么情况下需要用同步的-setState)_
-_[十八、如何实现 Javascript 继承机制](#十八、如何实现-Javascript-继承机制)_
-_[十九、React 在什么情况下会使用 Hook 和高阶组件](#十九、React-在什么情况下会使用-Hook-和高阶组件)_
+* _[一、Http 和 Https](#一、Http-和-Https)_
+* _[二、React 的生命周期](#二、React-的生命周期（具体）)_
+* _[三、Javascript 的事件循环](#三、Javascript-的事件循环)_
+* _[四、React 技术栈（全家桶）](#四、React-技术栈（全家桶）)_
+* _[五、跨域的解决方案以及为什么会有跨域问题](#五、跨域的解决方案以及为什么会有跨域问题)_
+* _[六、Node.js 常用的框架和组件（我用过的）](#六、Node.js-常用的框架和组件（我用过的）)_
+* _[七、Javascript 是单线程还是多线程](#七、Javascript-是单线程还是多线程)_
+* _[八、React 如何用某种手段保存登录状态（Cookie 不安全）](#八、React-如何用某种手段保存登录状态（Cookie-不安全）)_
+* _[九、Javascript 如何进行数组去重](#九、Javascript-如何进行数组去重)_
+* _[十、TCP 和 UDP 的区别](#十、TCP-和-UDP-的区别)_
+* _[十一、React Native 出现的原因](#十一、React-Native-出现的原因)_
+* _[十二、使用过的 React Native 第三方控件库](#十二、使用过的-React-Native-第三方控件库)_
+* _[十三、React 中 class 出现的原因（和 function 有什么区别）](#十三、React-中-class-出现的原因（和-function-有什么区别）)_
+* _[十四、React 中的优化方案（提升运行效率的方法）](#十四、React-中的优化方案（提升运行效率的方法）)_
+* _[十五、在使用 React Native 中遇到了什么困难](#十五、在使用-React-Native-中遇到了什么困难)_
+* _[十六、React-Router 的跳转方式及实现原理](#十六、React-Router-的跳转方式及实现原理)_
+* _[十七、setState 是异步的吗？为什么情况下需要用同步的 setState](#十七、setState-是异步的吗？为什么情况下需要用同步的-setState)_
+* _[十八、如何实现 Javascript 继承机制](#十八、如何实现-Javascript-继承机制)_
+* _[十九、React 在什么情况下会使用 Hook 和高阶组件](#十九、React-在什么情况下会使用-Hook-和高阶组件)_
 
 ## 一、Http 和 Https
 
