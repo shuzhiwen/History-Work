@@ -3,23 +3,25 @@
 * 岗位: 前端实习生
 * 总评: 一知半解
 
+## 问题目录
+
 * _[一、Http 和 Https](#一http-和-https)_
-* _[二、React 的生命周期](#二react-的生命周期（具体）)_
+* _[二、React 的生命周期](#二react-的生命周期)_
 * _[三、Javascript 的事件循环](#三javascript-的事件循环)_
-* _[四、React 技术栈（全家桶）](#四react-技术栈（全家桶）)_
+* _[四、React 技术栈](#四react-技术栈)_
 * _[五、跨域的解决方案以及为什么会有跨域问题](#五跨域的解决方案以及为什么会有跨域问题)_
-* _[六、Node.js 常用的框架和组件（我用过的）](#六node.js-常用的框架和组件（我用过的）)_
+* _[六、Node.js 常用的框架和组件](#六node.js-常用的框架和组件)_
 * _[七、Javascript 是单线程还是多线程](#七javascript-是单线程还是多线程)_
-* _[八、React 如何用某种手段保存登录状态（Cookie 不安全）](#八react-如何用某种手段保存登录状态（cookie-不安全）)_
+* _[八、React 如何用某种手段保存登录状态](#八react-如何用某种手段保存登录状态)_
 * _[九、Javascript 如何进行数组去重](#九javascript-如何进行数组去重)_
 * _[十、TCP 和 UDP 的区别](#十tcp-和-udp-的区别)_
 * _[十一、React Native 出现的原因](#十一react-native-出现的原因)_
 * _[十二、使用过的 React Native 第三方控件库](#十二使用过的-react-native-第三方控件库)_
-* _[十三、React 中 class 出现的原因（和 function 有什么区别）](#十三react-中-class-出现的原因（和-function-有什么区别）)_
-* _[十四、React 中的优化方案（提升运行效率的方法）](#十四react-中的优化方案（提升运行效率的方法）)_
+* _[十三、React 中 class 出现的原因](#十三react-中-class-出现的原因)_
+* _[十四、React 中的优化方案](#十四react-中的优化方案)_
 * _[十五、在使用 React Native 中遇到了什么困难](#十五在使用-react-native-中遇到了什么困难)_
 * _[十六、React-Router 的跳转方式及实现原理](#十六react-router-的跳转方式及实现原理)_
-* _[十七、setState 是异步的吗？为什么情况下需要用同步的 setState](#十七setstate-是异步的吗？为什么情况下需要用同步的-setstate)_
+* _[十七、setState 是异步的吗？什么情况下需要用同步的 setState](#十七setstate-是异步的吗什么情况下需要用同步的-setstate)_
 * _[十八、如何实现 Javascript 继承机制](#十八如何实现-javascript-继承机制)_
 * _[十九、React 在什么情况下会使用 Hook 和高阶组件](#十九react-在什么情况下会使用-hook-和高阶组件)_
 
@@ -59,7 +61,7 @@
 4. 事件循环: 一种循环检查的机制，只要同步任务执行完了，引擎就会检查挂起的异步任务，是不是可以进入主线程了。
 5. 维基百科对事件循环的定义: 事件循环是一个程序结构，用于等待和发送消息及事件。
 
-## 四、React 技术栈（全家桶）
+## 四、React 技术栈
 
 * React: 基本开发模块
 * React-Router: 前端路由导航
@@ -104,7 +106,7 @@
    * Access-Control-Allow-Credentials: 含义和简单请求相同。
    * Access-Control-Max-Age: 预检请求的有效期，单位为秒，在此期间不用发送另一条预检请求。
 
-## 六、Node.js 常用的框架和组件（我用过的）
+## 六、Node.js 常用的框架和组件
 
 * fs: 基础的文件管理模块。
 * path: 简化路径操作，提升代码可读性。
@@ -124,7 +126,7 @@
 3. 考虑 DOM 操作的场景: 一个线程添加，一个线程删除，线程之间需要协调，势必引出更高的复杂性。单线程更适合与用户交互的场景。
 4. 单线程的优点是实现简单，执行环境单纯; 缺点是容易造成堵塞，这个问题由事件循环和异步操作解决。
 
-## 八、React 如何用某种手段保存登录状态（Cookie 不安全）
+## 八、React 如何用某种手段保存登录状态
 
 * 临时存储: Context, Redux 等。
 * 永久存储: LocalStorage 等。
@@ -158,13 +160,13 @@
 * react-native-navigator: 路由导航。
 * react-native-swiper: 轮播图组件。
 
-## 十三、React 中 class 出现的原因（和 function 有什么区别）
+## 十三、React 中 class 出现的原因
 
 1. 使用 class 创建的组件，拥有 state（有状态）和生命周期函数，还可以定义静态类型方法; 运行效率低。
 2. 使用 function 创建的组件，只有 props，没有生命周期函数，无状态; 运行效率高。
 3. 使用时应该根据组件有无状态（state）来决定使用哪种类型的组件。
 
-## 十四、React 中的优化方案（提升运行效率的方法）
+## 十四、React 中的优化方案
 
 1. 首次加载时优化: 引入代码分割，组件通过懒加载的方式动态导入。
 2. 程序运行时优化: 避免不必要的更新和渲染。
@@ -191,7 +193,7 @@
 5. 路由是 URL 和 UI 之间的映射关系，在 React-Router 中则表现为 location 和 components 之间的映射。
 6. React-Router 中的重要组件: Router、RouterContext、Link（用于跳转）。
 
-## 十七、setState 是异步的吗？为什么情况下需要用同步的 setState
+## 十七、setState 是异步的吗？什么情况下需要用同步的 setState
 
 1. setState 是异步的，待更新的 state 会被放到队列中（批量）延迟更新，这样做有利于性能优化。
 2. 如果 state 后续状态依赖当前状态，则需要同步的 setState，方法是 seState 设置第二个参数为函数，其保证会引用更新后的state值。
